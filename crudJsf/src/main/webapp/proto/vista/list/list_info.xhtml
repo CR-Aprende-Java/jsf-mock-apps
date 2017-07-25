@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:dataTable id="afiplist" value="#{contactos.items}" var="item" rendered="#{contactos.vista eq 'Info'}" 
+                 selectionMode="single" selection="#{contactos.selected}"
+                 rowKey="#{item.id}" emptyMessage="( ningun contacto )"                 
+                 paginator="true" paginatorPosition="top" 
+                 rows="50" rowsPerPageTemplate="20,50,100,500"
+                 filteredValue="#{contactos.filteredItems}"
+                 widgetVar="itemsContactos"
+                 scrollable="true" scrollHeight="#{config.getHeightAreaRel(220)}" 
+                 tableStyle="table-layout:auto;width:100%;"
+                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} headerRight"                 
+                 >
+
+        <p:ajax event="rowSelect"   update=":ContactoListForm"/>
+        <p:ajax event="rowUnselect" update=":ContactoListForm"/>
+
+        <f:facet name="headerRight">
+            <h:outputText value="Buscar en campos: " />  
+            <p:inputText id="globalFilter"  onkeyup="PF('itemsContactos').filter()" placeholder="Buscar" style="margin-right: 10px" value="#{contactos.valorFiltro}">
+                <p:ajax event="keyup" listener="#{contactos.refresh()}"/>
+            </p:inputText>
+            <p:selectCheckboxMenu id="menu" value="#{contactos.vm.selCols}" label="Columnas" panelStyleClass="without-selectall" widgetVar="checkboxMenu">
+                <f:selectItems value="#{contactos.vm.allCols}" />
+                <p:ajax event="change" update="@widgetVar(itemsContactos), afiplist" />               
+                <p:ajax event="toggleSelect" update="@widgetVar(itemsContactos), afiplist" />                                        
+            </p:selectCheckboxMenu>
+        </f:facet>
+        <p:column headerText="Codigo" sortBy="#{item.cod}" priority="1" 
+                  style="text-align: center; width: 80px; " 
+                  rendered="#{contactos.vm.visible[0]}">
+            <h:outputText value="#{item.cod}"/>
+        </p:column>
+        <p:column headerText="Ed" priority="4" style="text-align: center; width: 35px;" 
+                  rendered="#{(id.notReadOnly)and(contactos.vm.visible[1])}" >
+            <p:commandLink onclick="PF('ContactoEditDialog').show()" update="afiplist" >
+                <h:graphicImage value="/resources/images/crud/edit-16.png" style="margin: 0px 4px;" />
+                <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
+            </p:commandLink>
+        </p:column>           
+        <p:column sortBy="#{item.nombreCorto}" priority="2" rendered="#{contactos.vm.visible[2]}">
+            <f:facet name="header">
+                <h:outputText value="Nombre"/>
+            </f:facet>
+            <p:commandLink onclick="PF('ContactoViewDialog').show()" update="afiplist, :ContactoViewForm"  >
+                <h:outputText value="#{item.nombreCorto}"/>
+                <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
+            </p:commandLink>
+        </p:column>
+        <p:column sortBy="#{item.nombre}" priority="3" 
+                  rendered="#{(contactos.vm.visible[3])}" >
+            <f:facet name="header">
+                <h:outputText value="Nombre Completo"/>
+            </f:facet>
+            <h:outputText value="#{item.nombre}"/>
+        </p:column>
+        <p:column sortBy="#{item.domicilio}" priority="5" rendered="#{contactos.vm.visible[6]}">                 
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.domicilio}"/>
+            </f:facet>
+            <h:outputText value="#{item.domicilio}"/>
+        </p:column>
+        <p:column sortBy="#{item.localidad}" priority="6" style="text-align: center;" rendered="#{contactos.vm.visible[7]}">                  
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.localidad}&nbsp;&nbsp;&nbsp;"/>
+            </f:facet>
+            <h:outputText value="#{item.localidad}"/>
+        </p:column>  
+        <p:column sortBy="#{item.telefono}" style="text-align: center;"
+                  rendered="#{contactos.vista eq 'Navegacion'}" >
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.telefono}&nbsp;&nbsp;&nbsp;"/>
+            </f:facet>
+            <h:outputText value="#{item.telefono}"/>
+        </p:column>
+        <p:column sortBy="#{item.correo}" 
+                  rendered="#{contactos.vista eq 'Navegacion'}" >
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.correo}"/>
+            </f:facet>
+            <h:outputText value="#{item.correo}"/>
+        </p:column>
+        <f:facet name="footer">
+            <h:outputText value="#{fn:length(contactos.items)} #{contactos.modulo}"/>
+        </f:facet>
+
+        <!--Columnas utilizadas para filtro-->
+        <p:column visible="false" filterBy="#{item.cod}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.nombreCorto}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.docNro}"  filterMatchMode="contains"/>        
+        <p:column visible="false" filterBy="#{item.nombre}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.domicilio}"  filterMatchMode="contains"/>
+
+    </p:dataTable>
+
+</ui:composition>
