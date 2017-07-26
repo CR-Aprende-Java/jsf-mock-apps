@@ -23,14 +23,14 @@
                             styleClass="#{config.activeURL('/faces/contactos.xhtml')} downtab"  
                             url="/faces/contactos.xhtml" />
 
-                <p:menuitem value="Configuracion" icon="ui-icon-gear" style="margin-left: 100px;"
-                            rendered="#{id.logged}"
+                <p:menuitem value="Configuracion" icon="ui-icon-gear" rendered="false" 
                             styleClass="#{config.activeURL('/faces/config/index.xhtml')} downtab"  
+                            style="margin-left: 100px;"
                             url="/faces/configuracion.xhtml" />
 
                 <p:submenu label="Ayuda" styleClass="qi-submenu" rendered="false" >
                     <p:menuitem value="Informacion del Sistema" url="/faces/gral/info/pymex_info.xhtml" />
-                    <p:menuitem value="Pagina de Soporte" url="/faces/gral/info/pymex_info.xhtml"  rendered="false" />
+                    <p:menuitem value="Pagina de Soporte" url="/faces/gral/info/pymex_info.xhtml"/>
                 </p:submenu>
             </p:menubar>
         </h:form>

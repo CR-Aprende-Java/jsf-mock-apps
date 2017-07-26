@@ -26,16 +26,16 @@
                         <p:password id="j_password" style="width:150px;"/>  
                         <br />
                         <p:commandButton id="btnLogin" value="INICIAR SESION" style="width:160px; height: 40px; font-weight: bold;"
-                                         action="/index_user.xhtml"  
+                                         action="#{id.doLogin()}"  
                                          ajax="false" />
                         
                         <!--p:commandButton value="INICIAR SESION" style="width:160px; height: 40px; font-weight: bold;" 
                                          onclick="window.open('','blankPopUp','status=no,toolbar=no,location=no,menubar=no,resizable,width=1200,height=750,scrollbars');" 
-                                         action="#{id.mockup_doLogin()}"  
-                        
+                                         
                                          action="/proto-lista.xhtml"  ajax="false" />
-                        
-                                         action="# {id.doLogin()}" ajax="false" /-->                        
+                                         action="/index_user.xhtml"                                           
+                                         action="# {id.doLogin()}"
+                                         ajax="false" /-->                        
                     </h:panelGrid>
 
                     <br />
