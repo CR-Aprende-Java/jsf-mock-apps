@@ -8,12 +8,11 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <p:dataTable id="datalist" value="#{contactos.items}" var="item" 
-                 rendered="#{contactos.vista eq 'Navegacion'}" 
+                 rendered="#{contactos.filter.vista eq 'Lista'}" 
                  selectionMode="single" selection="#{contactos.selected}"
                  rowKey="#{item.id}" emptyMessage="( ningun contacto )"                 
-                 paginator="true" paginatorPosition="top" 
+                 paginator="false" paginatorPosition="top" 
                  rows="50" rowsPerPageTemplate="20,50,100,500"
-                 filteredValue="#{contactos.filteredItems}"
                  widgetVar="itemsContactos"
                  scrollable="true" scrollHeight="#{config.getHeightAreaRel(210)}" 
                  tableStyle="table-layout:auto;width:100%;"
@@ -23,18 +22,12 @@
         <p:ajax event="rowSelect"   update=":ContactoListForm"/>
         <p:ajax event="rowUnselect" update=":ContactoListForm"/>
 
-        <f:facet name="headerRight">
-            <p:inputText id="globalFilter"  onkeyup="PF('itemsContactos').filter()" placeholder="Buscar" style="margin-right: 10px" value="#{contactos.valorFiltro}">
-                <p:ajax event="keyup" listener="#{contactos.refresh()}"/>
-            </p:inputText>
-        </f:facet>
         <p:column headerText="Codigo" sortBy="#{item.cod}" priority="1" 
                   style="text-align: center; width: 80px; " >
             <h:outputText value="#{item.cod}"/>
         </p:column>
         <p:column headerText="Ed" priority="5" 
-                  style="text-align: center; width: 35px;"  
-                  rendered="#{(id.notReadOnly)}" >
+                  style="text-align: center; width: 35px;" >
             <p:commandLink onclick="PF('ContactoEditDialog').show()" update="datalist" >
                 <h:graphicImage value="/resources/images/crud/edit-16.png" style="margin: 0px 4px;" />
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
@@ -58,7 +51,7 @@
             <h:outputText value="#{item.categoria}"/>
         </p:column>
         <f:facet name="footer">
-            <h:outputText value="#{fn:length(contactos.items)} #{contactos.modulo}"/>
+            <h:outputText value="#{fn:length(contactos.items)} #{contactos.filter.modulo}"/>
         </f:facet>
 
         <!--Columnas utilizadas para filtro-->

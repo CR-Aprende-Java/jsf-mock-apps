@@ -31,7 +31,7 @@
     <!-- BOTONERA ABM -->
         <h:panelGroup layout="block" 
                       style="float: right; padding-top: 4px; width: 260px;" 
-                      rendered="true">
+                      rendered="false">
             <p:splitButton id="createButton" icon="ui-icon-plusthick" value="Nuevo" 
                              title="Crear uno Nuevo (popup)" 
                              style="width: 100px; margin-right: -1px;" 
@@ -73,28 +73,28 @@
         <p:selectOneButton id="ContactoFilter" value="false" 
                            style="float: left; margin:2px -2px; " >  
                 <f:selectItem itemValue="false" itemLabel="de TODOS los Cursos" />  
-                <f:selectItem itemValue="true"  itemLabel="de un Curso: #{listasCfg.curso}" />  
+                <f:selectItem itemValue="true"  itemLabel="de un Curso: #{contactos.filter.etiqueta}" />  
                 <p:ajax event="change" listener="#{contactos.refresh}" 
                         update=":ContactoListForm, :ContactosSideForm" />
         </p:selectOneButton>            
 
-        <p:selectOneButton value="Fotos" 
+        <p:selectOneButton value="#{contactos.filter.vista}" 
                            style="float: right; margin:2px -2px; ">  
             <f:selectItem itemValue="Fotos" itemLabel="Fotos" />
-            <f:selectItem itemValue="Navegacion" itemLabel="Lista" /> 
+            <f:selectItem itemValue="Lista" itemLabel="Lista" /> 
             <f:selectItem itemValue="Info" itemLabel="Info" />                
             <p:ajax event="change" update=":ContactoListForm, :ContactosSideForm"/>
         </p:selectOneButton>
 
     </p:panelGrid>
 
-    <h:panelGroup rendered="#{contactos_vista eq 'Navegacion'}" >
+    <h:panelGroup rendered="#{contactos.filter.vista eq 'Lista'}" >
         <ui:include src="list/list.xhtml"/>
     </h:panelGroup>
-    <h:panelGroup rendered="#{contactos_vista eq 'Fotos'}" >
+    <h:panelGroup rendered="#{contactos.filter.vista eq 'Fotos'}" >
         <ui:include src="list/list_image.xhtml"/>
     </h:panelGroup>
-    <h:panelGroup rendered="#{contactos_vista eq 'Info'}" >  
+    <h:panelGroup rendered="#{contactos.filter.vista eq 'Info'}" >  
         <ui:include src="list/list_info.xhtml"/>
     </h:panelGroup>        
 </h:form>

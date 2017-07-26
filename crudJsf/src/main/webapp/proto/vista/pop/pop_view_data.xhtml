@@ -9,7 +9,7 @@
     <ui:composition>
 
                 <h:panelGroup id="display">
-                    <p:panelGrid  columns="2" rendered="# {contactos.selected != null}">
+                    <p:panelGrid  columns="2" rendered="#{contactos.selected != null}">
 
                         <h:outputText value="Codigo" />
                         <h:outputText id="cod" value="#{contactos.selected.cod}" style="font-weight: bold;"/>

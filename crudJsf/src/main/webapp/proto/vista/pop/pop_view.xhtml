@@ -21,7 +21,7 @@
                     <p:commandButton value="#{prop_crud.Anterior}" icon="ui-icon-triangle-1-w" 
                                      actionListener="#{contactos.previous}" 
                                      update=":ContactosSideForm, display,:ContactoListForm, :ContactoViewForm" style="float: right;"/>
-                    <h:outputText value="# {contactos.selected.nombreCorto} &nbsp;" 
+                    <h:outputText value="#{contactos.selected.nombreCorto} &nbsp;" 
                                   style="font-weight: bold; font-size: 26px;" />
                     <p:separator />
 

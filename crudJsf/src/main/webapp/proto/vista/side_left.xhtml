@@ -20,15 +20,15 @@
                     <p:menu styleClass="qi-sidemenu nobox qi-sidesection">
                         <p:menuitem value="Alumnos" ajax="false"  
                                     actionListener="#{contactos.refresh}" 
-                                    styleClass="#{config.activeWidget('Alumnos', 'Alumnos')}" >
+                                    styleClass="ui-state-active" >
                             <f:setPropertyActionListener 
-                                target="#{contactos.modulo}" value="Alumnos" />                            
+                                target="#{contactos.filter.modulo}" value="Alumnos" />                            
                         </p:menuitem>
-                        <p:menuitem value="Otros" ajax="false" 
+                        <p:menuitem value="Docentes" ajax="false" 
                                     actionListener="#{contactos.refresh}"  
-                                    styleClass="#{config.activeWidget('Alumnos', 'Otros')}" >
+                                    styleClass="#{config.activeWidget(contactos.modulo, 'Docentes')}" >
                             <f:setPropertyActionListener 
-                                target="#{contactos.modulo}" value="Otros" />                            
+                                target="#{contactos.filter.modulo}" value="Docentes" />                            
                         </p:menuitem>                       
                     </p:menu>
 
@@ -47,17 +47,16 @@
                         </p:column>
                     </p:dataTable>
 
-                    <p:dataTable value="#{listasCfg.cursos}" var="item"  rendered="false" 
-                                 scrollable="true" scrollHeight="#{config.getHeightAreaRel(236)}" 
-                                 selectionMode="single" selection="#{listasCfg.curso}" rowKey="#{item}"
+                    <p:dataTable value="#{contactos.filter.etiquetas}" var="item"
+                                 scrollable="true" scrollHeight="464" 
+                                 selectionMode="single" selection="#{contactos.filter.etiqueta}" rowKey="#{item}"
                                  styleClass="list_side" emptyMessage="( ningun rubro )"
                                  >
-                        <p:ajax event="rowSelect"    update=":ContactoListForm, :ContactosSideForm" 
-                                listener="#{contactos.refresh}"/>                           
+                        <p:ajax event="rowSelect"    update=":ContactoListForm, :ContactosSideForm" />                           
                         <p:ajax event="rowUnselect"  update=":ContactoListForm, :ContactosSideForm" 
-                                listener="#{contactos.setFiltroCurso('false')}"/> 
+                                listener="#{contactos.filter.setFiltroEtiqueta('false')}"/> 
                         <p:ajax event="rowDblselect" update=":ContactoListForm, :ContactosSideForm" 
-                                listener="#{contactos.setFiltroCurso('true')}"/> 
+                                listener="#{contactos.filter.setFiltroEtiqueta('true')}"/> 
 
                         <p:column  rendered="#{item ne ''}">
                             <f:facet name="header">

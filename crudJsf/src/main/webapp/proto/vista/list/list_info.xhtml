@@ -7,12 +7,10 @@
                 xmlns:fn="http://java.sun.com/jsp/jstl/functions"
                 xmlns:p="http://primefaces.org/ui">
 
-    <p:dataTable id="afiplist" value="#{contactos.items}" var="item" rendered="#{contactos.vista eq 'Info'}" 
-                 selectionMode="single" selection="#{contactos.selected}"
+    <p:dataTable id="afiplist" value="#{contactos.items}" var="item" rendered="#{contactos.filter.vista eq 'Info'}" 
                  rowKey="#{item.id}" emptyMessage="( ningun contacto )"                 
-                 paginator="true" paginatorPosition="top" 
+                 paginator="false" paginatorPosition="top" 
                  rows="50" rowsPerPageTemplate="20,50,100,500"
-                 filteredValue="#{contactos.filteredItems}"
                  widgetVar="itemsContactos"
                  scrollable="true" scrollHeight="#{config.getHeightAreaRel(220)}" 
                  tableStyle="table-layout:auto;width:100%;"
@@ -22,30 +20,17 @@
         <p:ajax event="rowSelect"   update=":ContactoListForm"/>
         <p:ajax event="rowUnselect" update=":ContactoListForm"/>
 
-        <f:facet name="headerRight">
-            <h:outputText value="Buscar en campos: " />  
-            <p:inputText id="globalFilter"  onkeyup="PF('itemsContactos').filter()" placeholder="Buscar" style="margin-right: 10px" value="#{contactos.valorFiltro}">
-                <p:ajax event="keyup" listener="#{contactos.refresh()}"/>
-            </p:inputText>
-            <p:selectCheckboxMenu id="menu" value="#{contactos.vm.selCols}" label="Columnas" panelStyleClass="without-selectall" widgetVar="checkboxMenu">
-                <f:selectItems value="#{contactos.vm.allCols}" />
-                <p:ajax event="change" update="@widgetVar(itemsContactos), afiplist" />               
-                <p:ajax event="toggleSelect" update="@widgetVar(itemsContactos), afiplist" />                                        
-            </p:selectCheckboxMenu>
-        </f:facet>
         <p:column headerText="Codigo" sortBy="#{item.cod}" priority="1" 
-                  style="text-align: center; width: 80px; " 
-                  rendered="#{contactos.vm.visible[0]}">
+                  style="text-align: center; width: 80px; " >
             <h:outputText value="#{item.cod}"/>
         </p:column>
-        <p:column headerText="Ed" priority="4" style="text-align: center; width: 35px;" 
-                  rendered="#{(id.notReadOnly)and(contactos.vm.visible[1])}" >
+        <p:column headerText="Ed" priority="4" style="text-align: center; width: 35px;"  >
             <p:commandLink onclick="PF('ContactoEditDialog').show()" update="afiplist" >
                 <h:graphicImage value="/resources/images/crud/edit-16.png" style="margin: 0px 4px;" />
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>           
-        <p:column sortBy="#{item.nombreCorto}" priority="2" rendered="#{contactos.vm.visible[2]}">
+        <p:column sortBy="#{item.nombreCorto}" priority="2" >
             <f:facet name="header">
                 <h:outputText value="Nombre"/>
             </f:facet>
@@ -54,41 +39,38 @@
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>
-        <p:column sortBy="#{item.nombre}" priority="3" 
-                  rendered="#{(contactos.vm.visible[3])}" >
+        <p:column sortBy="#{item.nombre}" priority="3" >
             <f:facet name="header">
                 <h:outputText value="Nombre Completo"/>
             </f:facet>
             <h:outputText value="#{item.nombre}"/>
         </p:column>
-        <p:column sortBy="#{item.domicilio}" priority="5" rendered="#{contactos.vm.visible[6]}">                 
+        <p:column sortBy="#{item.domicilio}" priority="5" >                 
             <f:facet name="header">
                 <h:outputText value="#{prop_contactos.domicilio}"/>
             </f:facet>
             <h:outputText value="#{item.domicilio}"/>
         </p:column>
-        <p:column sortBy="#{item.localidad}" priority="6" style="text-align: center;" rendered="#{contactos.vm.visible[7]}">                  
+        <p:column sortBy="#{item.localidad}" priority="6" style="text-align: center;" >                  
             <f:facet name="header">
                 <h:outputText value="#{prop_contactos.localidad}&nbsp;&nbsp;&nbsp;"/>
             </f:facet>
             <h:outputText value="#{item.localidad}"/>
         </p:column>  
-        <p:column sortBy="#{item.telefono}" style="text-align: center;"
-                  rendered="#{contactos.vista eq 'Navegacion'}" >
+        <p:column sortBy="#{item.telefono}" style="text-align: center;" >
             <f:facet name="header">
                 <h:outputText value="#{prop_contactos.telefono}&nbsp;&nbsp;&nbsp;"/>
             </f:facet>
             <h:outputText value="#{item.telefono}"/>
         </p:column>
-        <p:column sortBy="#{item.correo}" 
-                  rendered="#{contactos.vista eq 'Navegacion'}" >
+        <p:column sortBy="#{item.correo}" >
             <f:facet name="header">
                 <h:outputText value="#{prop_contactos.correo}"/>
             </f:facet>
             <h:outputText value="#{item.correo}"/>
         </p:column>
         <f:facet name="footer">
-            <h:outputText value="#{fn:length(contactos.items)} #{contactos.modulo}"/>
+            <h:outputText value="#{fn:length(contactos.items)} #{contactos.filter.modulo}"/>
         </f:facet>
 
         <!--Columnas utilizadas para filtro-->
