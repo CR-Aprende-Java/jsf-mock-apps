@@ -37,6 +37,10 @@ public class ContactoMockJsf implements Serializable {
         this.selected = selected;
     }
 
+    public void refresh() {
+        //nada x ahora
+    }
+
     // mock
     static public List mockList(String propietario, String modulo) {
         List l = new ArrayList();

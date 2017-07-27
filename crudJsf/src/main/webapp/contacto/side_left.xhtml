@@ -31,16 +31,34 @@
                         </p:menuitem>                       
                     </p:menu>
 
-                    <p:dataTable value="#{contactos.filter.etiquetas}" var="item"
+                    <p:dataTable value="#{contactos.items}" var="item" 
+                                 rendered="#{contactos.filter.vista eq 'Edicion'}" 
+                                 scrollable="true" scrollHeight="440" 
+                                 selectionMode="single" selection="#{contactos.selected}" rowKey="#{item.id}"
+                                 styleClass="list_side" emptyMessage="( ningun contacto )"
+                                 >
+                        <p:ajax event="rowSelect"   update=":ContactoListForm" />
+                        <p:ajax event="rowUnselect" update=":ContactoListForm" />
+                        <p:column filterBy="#{item.nombreCorto}" filterMatchMode="contains" >
+                            <f:facet name="header">
+                                <h:outputText value="#{contactos.filter.modulo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreCorto}"  />
+                        </p:column>
+                    </p:dataTable>
+
+                    <p:dataTable value="#{contactos.filter.etiquetas}" var="item"  
+                                 rendered="#{contactos.filter.vista ne 'Edicion'}" 
                                  scrollable="true" scrollHeight="464" 
                                  selectionMode="single" selection="#{contactos.filter.etiqueta}" rowKey="#{item}"
-                                 styleClass="list_side" emptyMessage="( ningun rubro )"
+                                 styleClass="list_side" emptyMessage="( ningun curso )"
                                  >
-                        <p:ajax event="rowSelect"    update=":ContactoListForm, :ContactosSideForm" />                           
+                        <p:ajax event="rowSelect"    update=":ContactoListForm, :ContactosSideForm" 
+                                listener="#{contactos.refresh}"/>                           
                         <p:ajax event="rowUnselect"  update=":ContactoListForm, :ContactosSideForm" 
-                                listener="#{contactos.filter.setFiltroEtiqueta('false')}"/> 
+                                listener="#{contactos.filter.setFiltroCurso('false')}"/> 
                         <p:ajax event="rowDblselect" update=":ContactoListForm, :ContactosSideForm" 
-                                listener="#{contactos.filter.setFiltroEtiqueta('true')}"/> 
+                                listener="#{contactos.filter.setFiltroCurso('true')}"/> 
 
                         <p:column  rendered="#{item ne ''}">
                             <f:facet name="header">
