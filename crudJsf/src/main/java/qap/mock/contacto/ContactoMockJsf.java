@@ -15,18 +15,24 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ContactoMockJsf implements Serializable {
     // lista
-    private final List mockList = mockList("demo", "Alumnos");
-    
-    // vista
-    private final CrudFilterOptions filter = filterOptions();
+    private final CrudFilterOptions filter;
+    private List items;
     private Contacto selected;
 
-    public List<Contacto> getItems() {
-        return mockList;
+    public ContactoMockJsf() {
+        this.filter = filterOptions();
     }
 
     public CrudFilterOptions getFilter() {
         return filter;
+    }
+
+    public List<Contacto> getItems() {
+        if (items == null) {
+            items = mockList("demo", "Alumnos");
+            //items = svc.getItems("demo", "Alumnos");
+        }
+        return items;
     }
 
     public Contacto getSelected() {

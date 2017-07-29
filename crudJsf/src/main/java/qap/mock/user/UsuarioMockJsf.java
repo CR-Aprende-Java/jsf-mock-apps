@@ -16,9 +16,9 @@ public class UsuarioMockJsf implements Serializable {
     private String password;
     private boolean logged = false;
 
-    private static final String LOGIN_VIEW   = "/index";
-    private static final String LOGOUT_VIEW  = "/index";
-    private static final String WELCOME_VIEW = "/index_user";
+    private static final String LOGIN_VIEW  = "/index";
+    private static final String LOGOUT_VIEW = "/index";
+    private static final String HOME_VIEW   = "/home";
 
     public UsuarioMockJsf() {
     }
@@ -29,7 +29,7 @@ public class UsuarioMockJsf implements Serializable {
 
     public String doLogin()  {       
         this.setLogged(true);        
-        return WELCOME_VIEW; // usa la pagina definida en spring-security 
+        return HOME_VIEW; // usa la pagina definida en spring-security 
     }
 
     public String doLogout() {

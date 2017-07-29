@@ -12,6 +12,6 @@ function autoWinHeight() {
     //combo.value = "max-"+winHeight();     
     var template = document.getElementById("areaForm:hiddenTemplate");
     var area = document.getElementById("areaForm:hiddenArea");
-    template.value = "quuapp_full";
+    template.value = "qap_template";
     area.value = winHeight();     
 }
