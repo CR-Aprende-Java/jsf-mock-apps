@@ -13,14 +13,14 @@
                             styleClass="#{config.activeURL('/faces/index.xhtml')} downtab" 
                             url="/faces/index.xhtml" />                
                 <p:menuitem value="Inicio" icon="ui-icon-home" rendered="#{id.logged}"
-                            styleClass="#{config.activeURL('/faces/app/index_user.xhtml')} downtab" 
-                            url="/faces/app/index_user.xhtml" />
+                            styleClass="#{config.activeURL('/faces/app/home.xhtml')} downtab" 
+                            url="/faces/app/home.xhtml" />
                 
                 <p:menuitem value="Lista" icon="ui-icon-note" rendered="#{id.logged}"
-                            styleClass="#{config.activeURL('/faces/proto-lista.xhtml')} downtab" 
+                            styleClass="#{config.activeURL('/faces/crud-list.xhtml')} downtab" 
                             url="/faces/proto-lista.xhtml" />
                 <p:menuitem value="Vista" icon="ui-icon-document" rendered="#{id.logged}"
-                            styleClass="#{config.activeURL('/faces/proto-vista.xhtml')} downtab" 
+                            styleClass="#{config.activeURL('/faces/crud-filter.xhtml')} downtab" 
                             url="/faces/proto-vista.xhtml" />
                 <p:menuitem value="Edicion" icon="ui-icon-person" rendered="false"
                             styleClass="#{config.activeURL('/faces/contactos.xhtml')} downtab"  

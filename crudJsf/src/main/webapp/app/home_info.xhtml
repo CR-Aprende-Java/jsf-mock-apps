@@ -15,18 +15,18 @@
             <p:panel header="Tablero de Comando" 
                      style="height: 280px; width: 630px; margin: 16px auto; text-transform: uppercase; " >
 
-                <h:graphicImage value="/resources/images/peep/pe-banner2.png" style="margin: 11px 120px; " /> 
+                <h:graphicImage value="#{app.info.banner}" alt="#{app.info.name}" style="margin: 11px 120px; " height="140" width="304" /> 
 
                 <h:panelGrid  columns="3" >
-                    <p:button outcome="/proto-lista.xhtml" value="Lista"  
+                    <p:button outcome="/crud-list.xhtml" value="Lista"  
                               style="margin: 7px 20px; padding: 10px; height: 54px; width: 158px; font-size: 16px !important; 
                                      background-repeat: no-repeat; background-position: left; background-image: url(#{resource['images:comprobante-48bn.png']})" />
                     
-                    <p:button outcome="/proto-lista.xhtml" value="Vista"  
+                    <p:button outcome="/crud-filter.xhtml" value="Vista"  
                               style="margin: 7px 20px; padding: 10px; height: 54px; width: 158px; font-size: 16px !important; 
                                      background-repeat: no-repeat; background-position: left; background-image: url(#{resource['images:articulo-48bn.png']})" />
                     
-                    <p:button outcome="/proto-lista.xhtml" value="Edicion" 
+                    <p:button outcome="/contactos.xhtml" value="Edicion" 
                               style="margin: 7px 20px; padding: 10px; height: 54px; width: 158px; font-size: 16px !important; 
                                      background-repeat: no-repeat; background-position: left; background-image: url(#{resource['images:contacto-48bn.png']})" />
 
@@ -38,7 +38,7 @@
                      toggleable="true" toggleSpeed="500" collapsed="true"
                      style="width: 630px; margin: 16px auto;" >
                 <h:panelGroup layout="block" style="float: right; margin-top: 8px;" >
-                    <h:graphicImage value="/resources/images/py/py-instruc.jpg" style="margin-right: 15px;" /> 
+                    <h:graphicImage value="/resources/images/instrucciones.jpg" style="margin-right: 15px;" /> 
                 </h:panelGroup>
 
                 <p style="margin-top: 8px;" ><h:outputText value="Ha ingresado a #{appProp.AppTitle} como " />

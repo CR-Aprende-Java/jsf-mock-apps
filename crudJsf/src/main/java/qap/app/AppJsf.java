@@ -13,8 +13,8 @@ public class AppJsf {
     private final AppModel info;
 
     public AppJsf() {
-        //info = appSvc.getInfo("Qapp"); ... si hay logica de negocio, sino
-        info = new AppModel("Peep");
+        //info = appSvc.getInfo("Qap"); ... si hay logica de negocio, sino
+        info = new AppModel("Qap");
     }
 
     public AppModel getInfo() {

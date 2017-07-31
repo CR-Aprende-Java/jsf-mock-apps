@@ -32,8 +32,8 @@
                         <!--p:commandButton value="INICIAR SESION" style="width:160px; height: 40px; font-weight: bold;" 
                                          onclick="window.open('','blankPopUp','status=no,toolbar=no,location=no,menubar=no,resizable,width=1200,height=750,scrollbars');" 
                                          
-                                         action="/proto-lista.xhtml"  ajax="false" />
-                                         action="/index_user.xhtml"                                           
+                                         action="/crud-list.xhtml"  ajax="false" />
+                                         action="/home.xhtml"                                           
                                          action="# {id.doLogin()}"
                                          ajax="false" /-->                        
                     </h:panelGrid>
@@ -47,19 +47,19 @@
                     <br />
                                            
                     <p style="margin: 0px 12px;"><h:outputText value="No puede acceder? " />
-                       <h:commandLink action="/index_user" value="recupere su contraseña" immediate="true"   />
-                       <!--h:link outcome="index_user" value="registrese aqui!"/-->
+                       <h:commandLink action="/home" value="recupere su contraseña" immediate="true"   />
+                       <!--h:link outcome="home" value="registrese aqui!"/-->
                     </p>
                     <br />
                     <p style="margin: 0px 12px;"><h:outputText value="Si no tiene una cuenta, " />
-                       <h:commandLink action="/index_user" value="registrese aqui!" immediate="true" />
-                       <!--h:link outcome="/index_user" value="registrese aqui!"/-->
+                       <h:commandLink action="/home" value="registrese aqui!" immediate="true" />
+                       <!--h:link outcome="/home" value="registrese aqui!"/-->
                     </p>
                     <br />
                     <p style="margin: 0px 12px;"><h:outputText value="Nueva Ventana: " />
                         <h:commandLink id="openPopUp" value="Iniciar Sesión" target="blankPopUp" 
                                    onclick="window.open('','blankPopUp','status=no,toolbar=no,titlebar=no,location=no,menubar=no,resizable,width=1400,height=870,scrollbars,left=10,top=10');" 
-                                   action="/index_user" />
+                                   action="/home" />
                     </p>
                     </h:form>
 

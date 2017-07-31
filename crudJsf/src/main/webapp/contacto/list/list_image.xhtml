@@ -23,7 +23,7 @@
 
         <p:column headerText="Foto" style="text-align: center; padding: 0;" priority="1" >
             <p:commandLink update=":ContactoListForm" onclick="PF('ContactoAddFileDialog').show()" >
-                <p:graphicImage value="/resources/images/neutro.png" width="48" height="48" alt="foto"/> 
+                <p:graphicImage value="/resources/images/contacto_neutro.png" width="48" height="48" alt="foto"/> 
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>
