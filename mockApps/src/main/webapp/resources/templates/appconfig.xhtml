@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:form>
+            <!--NOTA: no se usan listas desde un bean para no generar dependencias en el recurso-->
+            <h:panelGrid columns="6" border="0" cellpadding="0" cellspacing="2" styleClass="ui-widget"  
+                         style="float: right; margin: 0px 4px; text-transform: none; " rendered="#{id.logged eq true}">    
+                
+                <p:outputLabel value="Aplicación" style="margin: 4px 4px 4px 8px;"/>
+                <p:selectOneMenu style="width: 160px;"
+                                 value="#{app.appKey}" onchange="submit()" >  
+                    <!--f:selectItems value="# {config.getUserTemplate_options()}" /-->
+                    <f:selectItem itemValue="Qap"    itemLabel="Qap-Proto"/> 
+                    <f:selectItem itemValue="Peep"   itemLabel="Peep"/> 
+                    <f:selectItem itemValue="PymeX"  itemLabel="PymeX"/> 
+                    <f:selectItem itemValue="CheckA" itemLabel="CheckA"/> 
+                    <f:selectItem itemValue="Stocky" itemLabel="Stocky"/> 
+                    <f:selectItem itemValue="Quonta" itemLabel="Quonta"/> 
+                </p:selectOneMenu>  
+
+                <p:outputLabel value="Tema" style="margin: 4px 4px 4px 8px;"/>
+                <p:selectOneMenu id="themeSwitcher" style="width: 160px;"  
+                                 value="#{app.theme}" onchange="submit()" >                      
+                    <!--f:selectItems value="# {config.getTheme_options()}" /-->
+                    <f:selectItem itemValue="qap-boots"    itemLabel="Twitter Bootstrap"/> 
+                    <f:selectItem itemValue="qap-material" itemLabel="Google Material"/> 
+                    <f:selectItem itemValue="aristo"    itemLabel="Primefaces Aristo"/>  
+                    <f:selectItem itemValue="omega"     itemLabel="Primefaces Omega"/>  
+                    <f:selectItem itemValue="qap-blitz" itemLabel="Primefaces Blitzer"/> 
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Color" style="margin: 4px 4px 4px 8px;"/>
+                <p:selectOneMenu style="width: 160px;"
+                                 value="#{app.color}" onchange="submit()" >  
+                    <!--f:selectItems value="# {config.getBaseColor_options()}" /-->
+                    <f:selectItem itemValue="original"  itemLabel="Original"/> 
+                    <f:selectItem itemValue="blue"  itemLabel="Base Azul"/> 
+                    <f:selectItem itemValue="green"  itemLabel="Base Verde"/> 
+                    <f:selectItem itemValue="red"  itemLabel="Base Roja"/> 
+                </p:selectOneMenu>  
+                
+            </h:panelGrid>
+        </h:form>                    
+    </ui:composition>
+
+</html>
