@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:menuitem value="Asistencia" icon="fa fa-file-text" rendered="#{app.appKey eq 'Peep'}"
+                    styleClass="#{config.activeURL('/faces/apps/peep/alumnos-crud.xhtml')} downtab" 
+                    url="/faces/entity-list.xhtml" />
+        <p:menuitem value="Alumnos" icon="fa fa-user" rendered="#{app.appKey eq 'Peep'}"
+                    styleClass="#{config.activeURL('/faces/apps/peep/asistencia-crud.xhtml')} downtab" 
+                    url="/faces/entity-filter.xhtml" />
+
+    </ui:composition>
+
+</html>

@@ -280,3 +280,15 @@ body {
     border: 1px solid #ddd;
     border-radius: 3px;
 }     
+
+.ui-icon.fa {
+ margin-top: -1px;
+ margin-right: 2px;
+ font-size: 16px;
+}
+
+.icon16 .ui-icon.fa {
+ margin-top: -1px;
+ margin-right: 2px;
+ font-size: 16px;
+}

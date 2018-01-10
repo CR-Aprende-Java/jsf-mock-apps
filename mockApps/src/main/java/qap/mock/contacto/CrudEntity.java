@@ -6,7 +6,7 @@ import java.io.Serializable;
  *
  * @author siete
  */
-public class Contacto implements Serializable {
+public class CrudEntity implements Serializable {
     //*** AbstractEntity ***
     private Integer id;
     private String propietario;
@@ -33,18 +33,18 @@ public class Contacto implements Serializable {
     private static final String GENERO_NEUTRO  = "Neutro";
     private static final String ESTADO_INICIAL = "Activo";
     
-    public Contacto() {
+    public CrudEntity() {
         this.genero = GENERO_NEUTRO;
         this.estado = ESTADO_INICIAL;
     }
 
-    public Contacto(Integer id) {
+    public CrudEntity(Integer id) {
         this.id = id;
         this.genero = GENERO_NEUTRO;
         this.estado = ESTADO_INICIAL;
     }
 
-    public Contacto(Integer id, String propietario, String modulo, String cod, String nombre) {
+    public CrudEntity(Integer id, String propietario, String modulo, String cod, String nombre) {
         this.id = id;
         this.propietario = propietario;
         this.modulo = modulo;
@@ -55,7 +55,7 @@ public class Contacto implements Serializable {
         this.estado = ESTADO_INICIAL;
     }
 
-    public Contacto(Integer id, String propietario, String modulo, String categoria, 
+    public CrudEntity(Integer id, String propietario, String modulo, String categoria, 
                     String etiqueta, String cod, String nombre, String notas, 
                     String nombreCorto, String domicilio, String localidad, String telefono, 
                     String correo, String docTipo, String docNro, String condIva) {
@@ -259,10 +259,10 @@ public class Contacto implements Serializable {
     @Override
     public boolean equals(Object object) { // OJO creo que se puede eliminar y usar el de abstract, hay que ver omo funciona el instanceof
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Contacto)) {
+        if (!(object instanceof CrudEntity)) {
             return false;
         }
-        Contacto other = (Contacto) object;
+        CrudEntity other = (CrudEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -270,8 +270,8 @@ public class Contacto implements Serializable {
     }
 
     @Override
-    public Contacto clone(){
-        Contacto newItem = new Contacto(
+    public CrudEntity clone(){
+        CrudEntity newItem = new CrudEntity(
             id, propietario, modulo, categoria, etiqueta, cod, nombre, notas, 
             nombreCorto, domicilio, localidad, telefono, correo, docTipo, docNro, condIva);
         return newItem;

@@ -16,7 +16,7 @@ public class AppJsf {
     private String appKey = DEFAULT_APP;
     private String theme  = DEFAULT_THEME;
     private String color  = DEFAULT_COLOR;
-    private static final String DEFAULT_APP   = "qap";
+    private static final String DEFAULT_APP   = "Qap";
     private static final String DEFAULT_THEME = "qap-material";
     private static final String DEFAULT_COLOR = "original";
     

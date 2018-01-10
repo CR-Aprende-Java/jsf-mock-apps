@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:menuitem value="Lista" icon="ui-icon-note" rendered="#{app.appKey eq 'Qap'}"
+                    styleClass="#{config.activeURL('/faces/entity-list.xhtml')} downtab" 
+                    url="/faces/entity-list.xhtml" />
+        <p:menuitem value="Vista" icon="ui-icon-document" rendered="#{app.appKey eq 'Qap'}"
+                    styleClass="#{config.activeURL('/faces/entity-filter.xhtml')} downtab" 
+                    url="/faces/entity-filter.xhtml" />
+        <p:menuitem value="Edicion" icon="ui-icon-person" rendered="#{app.appKey eq 'Qap'}"
+                    styleClass="#{config.activeURL('/faces/entity-crud.xhtml')} downtab"  
+                    url="/faces/entity-crud.xhtml" />
+    </ui:composition>
+
+</html>
