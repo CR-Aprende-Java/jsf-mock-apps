@@ -7,13 +7,13 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-        <p:menuitem value="Lista" icon="ui-icon-note" rendered="#{app.appKey eq 'Qap'}"
+        <p:menuitem value="Lista" icon="fa fa-list-alt" rendered="#{app.appKey eq 'Qap'}"
                     styleClass="#{config.activeURL('/faces/entity-list.xhtml')} downtab" 
                     url="/faces/entity-list.xhtml" />
-        <p:menuitem value="Vista" icon="ui-icon-document" rendered="#{app.appKey eq 'Qap'}"
+        <p:menuitem value="Vista" icon="fa fa-list-ul" rendered="#{app.appKey eq 'Qap'}"
                     styleClass="#{config.activeURL('/faces/entity-filter.xhtml')} downtab" 
                     url="/faces/entity-filter.xhtml" />
-        <p:menuitem value="Edicion" icon="ui-icon-person" rendered="#{app.appKey eq 'Qap'}"
+        <p:menuitem value="Edicion" icon="fa fa-pencil" rendered="#{app.appKey eq 'Qap'}"
                     styleClass="#{config.activeURL('/faces/entity-crud.xhtml')} downtab"  
                     url="/faces/entity-crud.xhtml" />
     </ui:composition>

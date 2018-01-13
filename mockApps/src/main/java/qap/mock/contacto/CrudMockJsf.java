@@ -16,6 +16,8 @@ public class CrudMockJsf implements Serializable {
     private final CrudFilterOptions filter;
     private List items;
     private CrudEntity selected;
+    
+    private String modulo = "Alumnos";
 
     public CrudMockJsf() {
         this.filter = CrudMock.filterOptions("Contactos");
@@ -27,7 +29,7 @@ public class CrudMockJsf implements Serializable {
 
     public List<CrudEntity> getItems() {
         if (items == null) {
-            items = CrudMock.mockList("demo", "Contactos", "Alumnos");
+            items = CrudMock.mockList("demo", "Contactos", modulo);
             //items = svc.getItems("demo", "Alumnos");
         }
         return items;
@@ -43,6 +45,25 @@ public class CrudMockJsf implements Serializable {
 
     public void refresh() {
         //nada x ahora
+        items = null;
+    }
+    
+    // Getters & Setters
+
+    public String getModulo() {
+        return modulo;
+    }
+
+    public void setModulo(String modulo) {
+        //this.modulo = modulo;
+        
+        
+        // OJO !! por ahi esta no es la mejor manera y el set se ejecuta demasiado, igual solo se refresca si cambia.
+        
+        if (this.modulo != modulo) {
+            this.modulo = modulo;
+            refresh();
+        }
     }
         
 }

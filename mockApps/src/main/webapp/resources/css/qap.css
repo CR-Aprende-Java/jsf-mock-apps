@@ -292,3 +292,39 @@ body {
  margin-right: 2px;
  font-size: 16px;
 }
+
+.icon14 .ui-icon.fa {
+ margin-top: -1px;
+ margin-right: 2px;
+ font-size: 14px;
+}
+
+.ui-panelmenu-content .ui-icon.fa {
+ margin-top: 2px;
+}
+
+@media screen and (max-width : 922px) {
+    .hide-sm-922 {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width : 922px) {
+    .show-sm-922 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width : 640px) {
+    .hide-xs-640 {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width : 640px) {
+    .show-xs-640 {
+        display: none !important;
+    }
+}
+
+

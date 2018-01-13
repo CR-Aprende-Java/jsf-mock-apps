@@ -13,7 +13,11 @@
         <h:panelGroup layout="block"  
                       style="float: left; padding: 0px; margin: 2px 0px; width: 380px;" >
     <!-- TITULO -->
-        <h1>Vistas de Contactos</h1>
+        <h1> 
+            <p:outputLabel value="Vistas de " style="font-size: 1em !important; font-weight: bold;" styleClass="hide-sm-922"/>
+            Contactos
+            <p:outputLabel value="(#{contactos.modulo})" style="font-size: 1em !important; font-weight: bold;" />
+        </h1>
 
     <!-- CATEGORIAS -->
         <h:selectOneRadio value="Activo"                           
@@ -61,18 +65,40 @@
             <br class="clearfloat" />
 
             <h:commandLink value="#{prop_crud.Actualizar}" style="margin-left: 204px; margin-bottom: 10px;" 
-                           actionListener="#{contactos.refresh}" immediate="true"/>
+                           actionListener="#{contactos.refresh()}" immediate="true"/>
         </h:panelGroup>
 
     </p:panelGrid>
+    
     <!-- FILTROS Y VISTAS -->
-    <p:panelGrid layout="grid" columns="2" 
+    <p:panelGrid layout="grid" columns="2" styleClass="hide-xs-640"
                  style="margin-bottom: 8px; padding: 0px;">   
 
         <p:selectOneButton id="ContactoFilter" value="false" 
-                           style="float: left; margin:2px -2px; " >  
+                           style="float: left; margin:2px -2px; min-width:380px;" >  
                 <f:selectItem itemValue="false" itemLabel="de TODOS los Cursos" />  
                 <f:selectItem itemValue="true"  itemLabel="de un Curso: #{contactos.filter.etiqueta}" />  
+                <p:ajax event="change" listener="#{contactos.refresh}" 
+                        update=":ContactoListForm, :ContactosSideForm" />
+        </p:selectOneButton>            
+
+        <p:selectOneButton value="#{contactos.filter.vista}" 
+                           style="float: right; margin:2px -2px; max-width:380px;">  
+            <f:selectItem itemValue="Fotos" itemLabel="Fotos" />
+            <f:selectItem itemValue="Lista" itemLabel="Lista" /> 
+            <f:selectItem itemValue="Info" itemLabel="Info" />                
+            <p:ajax event="change" update=":ContactoListForm, :ContactosSideForm"/>
+        </p:selectOneButton>
+
+    </p:panelGrid>
+
+    <p:panelGrid columns="2" styleClass="ui-panelgrid-blank show-xs-640"
+                 style="margin-bottom: 8px; padding: 0px; width: 100%">   
+
+        <p:selectOneButton value="false" 
+                           style="float: left; margin:2px -2px; " >  
+                <f:selectItem itemValue="false" itemLabel="Todos" />  
+                <f:selectItem itemValue="true"  itemLabel="x Contacto" />  
                 <p:ajax event="change" listener="#{contactos.refresh}" 
                         update=":ContactoListForm, :ContactosSideForm" />
         </p:selectOneButton>            
@@ -81,7 +107,7 @@
                            style="float: right; margin:2px -2px; ">  
             <f:selectItem itemValue="Fotos" itemLabel="Fotos" />
             <f:selectItem itemValue="Lista" itemLabel="Lista" /> 
-            <f:selectItem itemValue="Info" itemLabel="Info" />                
+            <f:selectItem itemValue="Info"  itemLabel="Info" />                
             <p:ajax event="change" update=":ContactoListForm, :ContactosSideForm"/>
         </p:selectOneButton>
 

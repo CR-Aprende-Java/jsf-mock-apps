@@ -21,7 +21,7 @@ public class CrudMock {
         List l = new ArrayList();
         
         l.add(new CrudEntity(1, propietario, modulo, "024", "Perez, Juan Pablo"));
-        l.add(new CrudEntity(2, propietario, modulo, "031", "Ferrari, Daniela"));
+        l.add(new CrudEntity(2, propietario, modulo, "031", "Spinoso, Marina"));
         l.add(new CrudEntity(3, propietario, modulo, "045", "Roig, Christian"));
         l.add(new CrudEntity(4, propietario, modulo, "052", "Rodriguez, Emmanuel"));
         l.add(new CrudEntity(5, propietario, modulo, "053", "Fracchia, Marcos"));

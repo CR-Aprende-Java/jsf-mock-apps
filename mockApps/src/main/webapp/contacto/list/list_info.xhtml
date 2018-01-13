@@ -21,7 +21,7 @@
         <p:ajax event="rowSelect"   update=":ContactoListForm"/>
         <p:ajax event="rowUnselect" update=":ContactoListForm"/>
 
-        <p:column headerText="Codigo" sortBy="#{item.cod}" priority="1" 
+        <p:column headerText="Codigo" sortBy="#{item.cod}" priority="2" 
                   style="text-align: center; width: 80px; " >
             <h:outputText value="#{item.cod}"/>
         </p:column>
@@ -31,7 +31,7 @@
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>           
-        <p:column sortBy="#{item.nombreCorto}" priority="2" >
+        <p:column sortBy="#{item.nombreCorto}" priority="1" >
             <f:facet name="header">
                 <h:outputText value="Nombre"/>
             </f:facet>
@@ -46,7 +46,7 @@
             </f:facet>
             <h:outputText value="#{item.nombre}"/>
         </p:column>
-        <p:column sortBy="#{item.domicilio}" priority="5" >                 
+        <p:column sortBy="#{item.domicilio}" priority="1" >                 
             <f:facet name="header">
                 <h:outputText value="#{prop_contactos.domicilio}"/>
             </f:facet>
@@ -58,7 +58,7 @@
             </f:facet>
             <h:outputText value="#{item.localidad}"/>
         </p:column>  
-        <p:column sortBy="#{item.telefono}" style="text-align: center;"
+        <p:column sortBy="#{item.telefono}"  style="text-align: center;"
                   rendered="#{contactos.filter.vista eq 'Lista'}" >
             <f:facet name="header">
                 <h:outputText value="#{prop_contactos.telefono}&nbsp;&nbsp;&nbsp;"/>

@@ -27,7 +27,7 @@
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>
-        <p:column headerText="Nombre" sortBy="#{item.nombreCorto}"  priority="2" >
+        <p:column headerText="Nombre" sortBy="#{item.nombreCorto}"  priority="1" >
             <p style="margin: 5px 0px;" >
                 <p:commandLink onclick="PF('ContactoViewDialog').show()" update="imagelist, :ContactoViewForm"  >
                     <h:outputText value="#{item.nombreCorto}  - #{item.cod}"/>
@@ -36,7 +36,7 @@
             </p>
             <h:outputText value="( #{item.nombre} )" />
         </p:column>
-        <p:column headerText="Ed" priority="3" 
+        <p:column headerText="Ed" priority="1" 
                   style="text-align: center; width: 30px;" >
             <p:commandLink onclick="PF('ContactoEditDialog').show()" update="imagelist, :ContactoEditForm" >
                 <h:graphicImage value="/resources/images/crud/edit-16.png" style="margin: 0px 4px;" />

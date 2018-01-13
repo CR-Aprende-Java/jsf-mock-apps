@@ -28,7 +28,7 @@
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>
-        <p:column headerText="Nombre" sortBy="#{item.nombreCorto}"  priority="2" >
+        <p:column headerText="Nombre" sortBy="#{item.nombreCorto}"  priority="1" >
             <p style="margin: 5px 0px;" >
                 <p:commandLink onclick="PF('ContactoViewDialog').show()" update="imagelist, :ContactoViewForm"  >
                     <h:outputText value="#{item.nombreCorto}  - #{item.cod}"/>

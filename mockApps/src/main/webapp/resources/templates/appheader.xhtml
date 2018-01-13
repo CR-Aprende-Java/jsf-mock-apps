@@ -8,7 +8,7 @@
     <ui:composition>
         <h:form> 
             <p:idleMonitor timeout="1810000" rendered="#{id.logged}">
-                <p:ajax event="idle" listener="#{id.onIdle}" update=":growl" />
+                <!--p:ajax event="idle" listener="# {id.onIdle}" update=":growl" /-->
             </p:idleMonitor>
 
             <h:panelGrid id="configPanel" columns="1" border="0" cellpadding="0" cellspacing="2" styleClass="ui-widget"  

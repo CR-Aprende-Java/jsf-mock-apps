@@ -33,7 +33,7 @@
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>           
-        <p:column headerText="Nombre Corto" sortBy="#{item.nombreCorto}" priority="2" >
+        <p:column headerText="Nombre Corto" sortBy="#{item.nombreCorto}" priority="1" >
             <p:commandLink onclick="PF('ContactoViewDialog').show()" update="datalist, :ContactoViewForm"  >
                 <h:outputText value="#{item.nombreCorto}"/>
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  

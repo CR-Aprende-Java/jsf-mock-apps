@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+<h:form id="menuForm2">
+                                
+    <p:menu style="text-transform: uppercase; height: 137px; margin: 0px; padding: 0px 6px; border-width: 0px; " >
+            <p:menuitem value="Inicio" icon="fa fa-home" 
+                        styleClass="#{config.activeURL('/faces/app/index_user.xhtml')} downtab" 
+                        url="/faces/home.xhtml" />
+
+            <ui:include src="/app/apps/appmenu_qap.xhtml" />   
+            <ui:include src="/app/apps/appmenu_peep.xhtml" />   
+            <ui:include src="/app/apps/appmenu_pymex.xhtml" />   
+            <ui:include src="/app/apps/appmenu_checka.xhtml" />   
+            <ui:include src="/app/apps/appmenu_stocky.xhtml" />   
+            <ui:include src="/app/apps/appmenu_quonta.xhtml" />   
+
+            <p:menuitem value="Configuracion" icon="fa fa-gear" 
+                styleClass="#{config.activeURL('/faces/entity-crud.xhtml')} downtab"  
+                url="/faces/entity-crud.xhtml" />
+            
+            
+            
+        <p:submenu label="Mas (no queda bien, solo un nivel)" rendered="false" >
+        </p:submenu>
+
+        <p:submenu label="Ayuda" styleClass="qi-submenu" rendered="false" >
+            <p:menuitem value="Informacion del Sistema" url="/faces/gral/info/pymex_info.xhtml" />
+            <p:menuitem value="Pagina de Soporte" url="/faces/gral/info/pymex_info.xhtml"  rendered="false" />
+        </p:submenu>
+    </p:menu>
+    <p:panelMenu rendered="#{app.appKey eq 'PymeX'}" style="text-align: left;" >
+            <p:submenu label="">
+                <p:submenu label="&nbsp;&nbsp;Comprobantes"  icon="fa fa-file-text"  >
+                    <p:menuitem value="Ventas"  />
+                    <p:menuitem value="Compras"  />
+                    <p:menuitem value="Sueldos"  />
+                    <p:menuitem value="Impuestos"  />
+                </p:submenu>   
+
+                <p:submenu label="&nbsp;&nbsp;Contactos"  icon="fa fa-user"  >
+                    <p:menuitem value="Clientes" url="/faces/entity-filter2.xhtml?tipo=Clientes" actionListener="refresh" immediate="true" ajax="false" />
+                    <p:menuitem value="Proveedores" url="/faces/entity-filter2.xhtml?tipo=Proveedores" actionListener="refresh"  />
+                    <p:menuitem value="Empleados"  />
+                    <p:menuitem value="Organismos"  />
+                </p:submenu>   
+
+                <p:submenu label="&nbsp;&nbsp;&nbsp;Reportes"  icon="fa fa-print"  >
+                    <p:menuitem value="Control Comparativo"  />
+                    <p:menuitem value="Resultado Mensual"  />
+                    <p:menuitem value="Libros de Iva"  />
+                    <p:menuitem value="Informes Fiscales"  />
+                    <p:submenu label="+ Reportes"  rendered="#{app.appKey eq 'PymeX'}" >
+                        <p:menuitem value="Resultado Anual" />
+                        <p:menuitem value="Verificar Libros de Iva" />
+                        <p:menuitem value="Control Fiscal" />
+                    </p:submenu>   
+                </p:submenu>   
+            
+        </p:submenu>
+
+        </p:panelMenu>   
+</h:form>
+</ui:composition>
+</html>

@@ -22,7 +22,7 @@
         <p:ajax event="rowSelect"   update=":ContactoListForm"/>
         <p:ajax event="rowUnselect" update=":ContactoListForm"/>
 
-        <p:column headerText="Codigo" sortBy="#{item.cod}" priority="1" 
+        <p:column headerText="Codigo" sortBy="#{item.cod}" priority="2" 
                   style="text-align: center; width: 80px; " >
             <h:outputText value="#{item.cod}"/>
         </p:column>
@@ -33,7 +33,7 @@
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
             </p:commandLink>
         </p:column>           
-        <p:column headerText="Nombre Corto" sortBy="#{item.nombreCorto}" priority="2" >
+        <p:column headerText="Nombre Corto" sortBy="#{item.nombreCorto}" priority="1" >
             <p:commandLink onclick="PF('ContactoViewDialog').show()" update="datalist, :ContactoViewForm"  >
                 <h:outputText value="#{item.nombreCorto}"/>
                 <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  

@@ -9,11 +9,12 @@
     <ui:composition>
         <h:form>
             <!--NOTA: no se usan listas desde un bean para no generar dependencias en el recurso-->
-            <h:panelGrid columns="6" border="0" cellpadding="0" cellspacing="2" styleClass="ui-widget"  
-                         style="float: right; margin: 0px -4px 0px 4px; text-transform: none; " >    
+            <p:panelGrid columns="6" styleClass="ui-panelgrid-blank" layout="grid"
+                         columnClasses="ui-grid-col-1, ui-grid-col-3,ui-grid-col-1, ui-grid-col-3, ui-grid-col-1, ui-grid-col-3"
+                         style="float: right; margin-right: -12px;" >    
                 
-                <p:outputLabel value="Aplicación" style="margin: 4px 4px 4px 8px;"/>
-                <p:selectOneMenu style="width: 160px;"
+                <h:outputText value="&nbsp;App" styleClass="qi-footer" rendered="#{id.logged}"/>
+                <p:selectOneMenu style="width: 146px; margin-top: -5px;" rendered="#{id.logged}"
                                  value="#{app.appKey}" onchange="submit()" >  
                     <!--f:selectItems value="# {config.getUserTemplate_options()}" /-->
                     <f:selectItem itemValue="Qap"    itemLabel="Qap-Proto"/> 
@@ -24,10 +25,8 @@
                     <f:selectItem itemValue="Quonta" itemLabel="Quonta"/> 
                 </p:selectOneMenu>  
 
-                <p:outputLabel value="Tema" style="margin: 4px 4px 4px 8px;" 
-                               styleClass="hide-sm-922" rendered="#{id.logged}"/>
-                <p:selectOneMenu id="themeSwitcher" style="width: 160px;" 
-                                 styleClass="hide-sm-922" rendered="#{id.logged}"  
+                <p:outputLabel value="Tema" styleClass="qi-footer"/>
+                <p:selectOneMenu id="themeSwitcher" style="width: 146px; margin-top: -5px;;"  
                                  value="#{app.theme}" onchange="submit()" >                      
                     <!--f:selectItems value="# {config.getTheme_options()}" /-->
                     <f:selectItem itemValue="qap-boots"    itemLabel="Twitter Bootstrap"/> 
@@ -37,19 +36,17 @@
                     <f:selectItem itemValue="qap-blitz" itemLabel="Primefaces Blitzer"/> 
                 </p:selectOneMenu>
 
-                <p:outputLabel value="Color" style="margin: 4px 4px 4px 8px;" 
-                               styleClass="hide-sm-922" rendered="#{id.logged}"/>
-                <p:selectOneMenu style="width: 160px;" 
-                                 styleClass="hide-sm-922" rendered="#{id.logged}"
+                <p:outputLabel value="Color" styleClass="qi-footer" rendered="#{id.logged}"/>
+                <p:selectOneMenu style="width: 146px; margin-top: -5px;" rendered="#{id.logged}"
                                  value="#{app.color}" onchange="submit()" >  
                     <!--f:selectItems value="# {config.getBaseColor_options()}" /-->
                     <f:selectItem itemValue="original"  itemLabel="Original"/> 
                     <f:selectItem itemValue="blue"  itemLabel="Base Azul"/> 
-                    <f:selectItem itemValue="green" itemLabel="Base Verde"/> 
-                    <f:selectItem itemValue="red"   itemLabel="Base Roja"/> 
+                    <f:selectItem itemValue="green"  itemLabel="Base Verde"/> 
+                    <f:selectItem itemValue="red"  itemLabel="Base Roja"/> 
                 </p:selectOneMenu>  
                 
-            </h:panelGrid>
+            </p:panelGrid>
         </h:form>                    
     </ui:composition>
 
