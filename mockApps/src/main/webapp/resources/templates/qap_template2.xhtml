@@ -43,15 +43,17 @@
                 <ui:insert name="body">
                     <!--ui:include src="/app/welcome_info.xhtml" /-->                     
                 </ui:insert>
+                
+                
+                <!-- South -->
+                <h:panelGroup layout="block" styleClass="qi-footer ui-widget" 
+                              style="padding-top: 14px; ">
+                    <ui:insert name="footer">
+                        <ui:include src="/resources/templates/appfooter.xhtml"/>
+                    </ui:insert>
+                </h:panelGroup>
             </h:panelGroup>
 
-            <!-- South -->
-            <h:panelGroup layout="block" styleClass="qi-footer ui-widget" 
-                          style="padding-top: 14px; ">
-                <ui:insert name="footer">
-                    <ui:include src="/resources/templates/appfooter.xhtml"/>
-                </ui:insert>
-            </h:panelGroup>
     </h:body>
 
 </html>

@@ -8,7 +8,7 @@
 <ui:composition>
 <h:form id="menuForm2">
                                 
-    <p:menu style="text-transform: uppercase; height: 137px; margin: 0px; padding: 0px 6px; border-width: 0px; " >
+    <p:menu style="text-transform: uppercase; height: 137px; margin: 0px -1em; margin-top: -.5em; padding: 0px 6px; border-width: 0px; " >
             <p:menuitem value="Inicio" icon="fa fa-home" 
                         styleClass="#{config.activeURL('/faces/app/index_user.xhtml')} downtab" 
                         url="/faces/home.xhtml" />
@@ -34,7 +34,7 @@
             <p:menuitem value="Pagina de Soporte" url="/faces/gral/info/pymex_info.xhtml"  rendered="false" />
         </p:submenu>
     </p:menu>
-    <p:panelMenu rendered="#{app.appKey eq 'PymeX'}" style="text-align: left;" >
+    <p:panelMenu rendered="#{app.appKey eq 'PymeX'}" style="text-align: left;margin: 0px -1em; " >
             <p:submenu label="">
                 <p:submenu label="&nbsp;&nbsp;Comprobantes"  icon="fa fa-file-text"  >
                     <p:menuitem value="Ventas"  />

@@ -70,7 +70,11 @@
             <h:outputText value="Estado: #{item.estado}"/>
         </p:column>
         <f:facet name="footer">
-            <h:outputText value="#{fn:length(contactos.items)} #{contactos.filter.modulo}"/>
+            <h:outputText value="#{fn:length(contactos.items)} #{contactos.filter.modulo} &nbsp;&nbsp;&nbsp;" style="text-align: left;"/>
+
+            <p:commandLink onclick="PF('ContactoViewDialog').show()" update="imagelist, :ContactoViewForm"  >
+                 <h:outputText value="Ver más"/>
+             </p:commandLink>
         </f:facet>
 
         <!--Columnas utilizadas para filtro-->

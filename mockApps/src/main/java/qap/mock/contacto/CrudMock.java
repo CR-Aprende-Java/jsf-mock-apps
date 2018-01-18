@@ -33,6 +33,18 @@ public class CrudMock {
         if ("Proveedores".equals(modulo)) {
             l.add(new CrudEntity(8, propietario, modulo, "065", "Telecom S.A."));            
             l.add(new CrudEntity(9, propietario, modulo, "065", "Camuzzi Gas Pampeana S.A."));            
+
+            l.add(new CrudEntity(10, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(11, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(12, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(13, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(14, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(15, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(16, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(17, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(18, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(19, propietario, modulo, "065", "Camuzzi 10+"));            
+            l.add(new CrudEntity(20, propietario, modulo, "065", "Camuzzi 10+"));            
         }
 
         return l;

@@ -8,6 +8,11 @@
     
 <h:form id="ContactoListForm">
 
+    <p:ajaxStatus onstart="PF('statusDialog2').show()" onsuccess="PF('statusDialog2').hide()" />
+        <p:dialog widgetVar="statusDialog2" draggable="false" closable="false" resizable="false" showHeader="false" width="82" height="60" >
+            <i class="fa fa-spinner fa-spin fa-3x" style="margin-left: 10px; margin-top: 10px;"></i>
+        </p:dialog>
+    
     <p:panelGrid layout="grid" columns="3" 
                  style="margin-bottom: 8px;" >
         <h:panelGroup layout="block"  

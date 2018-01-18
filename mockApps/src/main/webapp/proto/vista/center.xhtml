@@ -12,6 +12,16 @@
                  style="margin-bottom: 8px;" >
         <h:panelGroup layout="block"  
                       style="float: left; padding: 0px; margin: 2px 0px; width: 380px;" >
+            
+    <p:commandButton id="menuBtn" type="button" styleClass="qi-menubutton show-sm-922" icon="fa fa-navicon"
+                                 style="float: left; height: 26px; margin-left: -2px; margin-right: 6px;" />
+                <p:overlayPanel id="menuPanel" for="menuBtn" hideEffect="fade" 
+                                style="height: 390px; width: 160px; text-align: center; text-transform: uppercase; margin: 0;" 
+                                styleClass="qi-sidesection" >            
+                    <ui:include src="side_left_content.xhtml" />                                 
+                </p:overlayPanel>
+            
+            
     <!-- TITULO -->
         <h1> 
             <p:outputLabel value="Vistas de " style="font-size: 1em !important; font-weight: bold;" styleClass="hide-sm-922"/>
